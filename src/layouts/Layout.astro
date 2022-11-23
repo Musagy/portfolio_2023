@@ -1,0 +1,43 @@
+---
+import '@fontsource/fredoka';
+import Nav from '../components/Nav.vue';
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+const path = Astro.url.pathname
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/Logo.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Nav path={path}/>
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>
+<style is:global>
+	* {
+		border: 0;
+		margin: 0;
+		box-sizing: border-box;
+		font-family: "Fredoka", "Roboto", sans-serif;
+	}
+	body {
+		overflow-x: hidden;
+	}
+
+	main {
+		margin-top: 100px;
+		background-color: #3640c1;
+	}
+</style>
